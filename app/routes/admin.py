@@ -9,7 +9,7 @@ async def login(request):
     """
     Handles a post request for login to the administrative area.
     """
-    return not_implemented
+    return not_implemented()
 
 
 def setup_admin_routes(app):
