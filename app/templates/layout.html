@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+/**
+ * aiohttp-three-template 1.0.0
+ * https://github.com/RobertoPrevato/aiohttp-three-template
+ *
+ * Copyright 2016, Roberto Prevato
+ * https://robertoprevato.github.io
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+  <!-- Force latest IE rendering engine or ChromeFrame if installed -->
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <meta charset="utf-8">
+  <title>{%- block title-%}{%- endblock -%}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="{%- block description-%}{%- endblock -%}" />
+  <meta name="copyright" content="{{copy()}}" />
+  <meta id="meta-aft" name="aft" content="{{antiforgery()}}" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="/styles/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  {%- block css -%}{%- endblock -%}
+</head>
+<body id="page-top">
+  <nav id="main-nav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <a class="navbar-brand" href="#page-top">aiohttp three template</a>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div id="content">
+    {%- block body -%}{%- endblock -%}
+  </div>
+  {%- block js -%}{%- endblock -%}
+</body>
+</html>

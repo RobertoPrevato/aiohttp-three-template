@@ -1,0 +1,85 @@
+{%- extends "layout.html" -%}
+{%- block title -%}
+  Index Page
+{%- endblock -%}
+{%- block description -%}
+  Index description
+{%- endblock -%}
+{%- block css -%}
+  <link rel="stylesheet" href="styles/public.css" />
+{%- endblock -%}
+{%- block body -%}
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <img class="img-responsive" src="/images/aiohttp.png" alt="aiohttp">
+          <h2 class="main-description">aiohttp is a great web framework to build event based,<br>non&#8209;blocking Python web applications.</h2>
+          <hr class="star-light">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <p>aiohttp leverages the latest Python 3 built-in features for concurrency{# (asyncio, <a href="https://www.python.org/dev/peps/pep-0492/">async/await syntax</a>)#}, to offer an extremely high performance HTTP client/server implementation.</p>
+        </div>
+        <div>
+          <a href="http://aiohttp.readthedocs.io/en/stable/web.html" class="btn btn-lg btn-outline" target="_blank">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="footer-above">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col col-md-4">
+          <h3>About the project template</h3>
+          <p>aiohttp-three-template is a project template for aiohttp web applications created by <a href="https://github.com/RobertoPrevato">Roberto Prevato</a>.</p>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>Around the Web</h3>
+            <ul class="list-inline">
+              <li>
+                <a href="https://plus.google.com/+RobertoPrevato86" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+              </li>
+              <li>
+                <a href="https://github.com/RobertoPrevato" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com/RobertoPrevato" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/roberto-prevato-a186a650" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="https://www.pinterest.com/robertoprevato" class="btn-social btn-outline"><i class="fa fa-fw fa-pinterest"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>About Freelancer<br>(page theme)</h3>
+            <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start&nbsp;Bootstrap</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-below">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <a href="https://robertoprevato.github.io">{{copy()}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+{%- endblock -%}
+{%- block js -%}
+  {{ resources("libs", "public") | safe }}
+{%- endblock -%}
+

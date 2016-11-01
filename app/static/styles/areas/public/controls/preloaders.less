@@ -1,0 +1,21 @@
+#global-preloader {
+  position: absolute;
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
+}
+
+.preloader-mask {
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+  .preloader-icon {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/preloader.gif");
+  }
+}
