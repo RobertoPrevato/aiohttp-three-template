@@ -69,3 +69,5 @@ target/
 node_modules
 jspm_packages
 
+app/static/styles/*.css
+
