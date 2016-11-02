@@ -1,8 +1,9 @@
 """
  Copyright 2016, Roberto Prevato roberto.prevato@gmail.com
 
- Configuration file for JavaScript resources.
- This file is read both by Grunt/Gulp to generate built and minified javascript,
+ This module contains functions to read configuration file for JavaScript resources, to generate <script> tags using
+ dynamically.
+ The configuration file is read both by Grunt/Gulp to generate built and minified javascript,
  and by the Python application, to generate <script> tags.
 """
 import re
@@ -44,7 +45,7 @@ def resources(names,
     a = []
     for name in names:
         if not name in sets:
-            raise Exception("The set `{}` is not configured inside /configuration/scripts.js".format(name))
+            raise ValueError("The set `{}` is not configured inside /configuration/scripts.js".format(name))
         if minification:
             a.append("<script src=\"/scripts/{}{}?s={}\"></script>".format(name, ".min.js", cache_seed))
         elif bundling:
