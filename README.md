@@ -31,11 +31,11 @@ Project template for Python aiohttp three-tier web applications
 * [master](https://github.com/RobertoPrevato/aiohttp-three-template/tree/master): template with all features listed above.
 
 ## Why PostgreSQL?
-Currently, PostgreSQL seems to be the best supported DBMS for use with the latest Python versions and its features for concurrency (asyncio).
-There is a driver for MongoDB (called Motor), but it seems that it doesn't support latest versions of Python 3, featuring the convenient async / await syntax.
+Currently, PostgreSQL seems to be the best supported DBMS for use with the latest versions of Python and its features for concurrency (asyncio), including the convenient async / await syntax.
 
 ## Why not aiohttp-security?
-I preferred to implement my own solution for authentication and authorization strategy, because:
+A new implementation of authentication and authorization strategies was preferred because:
 1. apparently aiohttp-security doesn't implement salt value for passwords stored in database
-2. authentication strategy must be abstracted from front end layer, in aiohttp-security things seem to be single layer (presentation layer, business logic and database access code mixed in single places)
+2. authentication strategy must be abstracted from front end layer; in aiohttp-security things seem to be single layer (presentation layer, business logic and database access code mixed in single places)
+3. one of the objectives was to support the separation of the application into logical areas, each supporting its own authentication logic
 
