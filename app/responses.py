@@ -38,6 +38,3 @@ def not_modified():
     return web.Response(text="Not mofidifed",
                         status=304,
                         content_type=PLAIN_TYPE)
-
-
-

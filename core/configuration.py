@@ -26,6 +26,9 @@ class Configuration:
                 key += '_'
             self.__data[key] = value
 
+    def __contains__(self, item):
+        return item in self.__data
+
     def __getitem__(self, name):
         return self.__getattr__(name)
 

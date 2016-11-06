@@ -1,20 +1,60 @@
 host: 127.0.0.1
 port: 8080
+
+# whether the application server should serve static files: in production this configuration is most probably
+# set to false; because an HTTP Proxy server (like Nginx) is configured to serve the static files for the application.
+# conversely, during development this configuration is most probably configured to true.
+serve_static: true
+
+# whether the application is run for development
 development: true
+
+# whether to show error details or not: in production this configuration should be set to false
+show_error_details: true
+
+# cache seed prepended as query string to links for static files (js and css), that can be used to force javascript
+# refresh after a new application deployment
 cache_seed: 1
 
+# secure_cookies controls whether important cookies (e.g. authentication cookies) should require HTTPS or not.
+# any web application implementing a login mechanism should use HTTPS and work with secure cookies in production.
+secure_cookies: false
+
+# site information
 site:
   name: aio-three-template
-  copyright: Roberto Prevato
+  copyright: Roberto Prevato # site copyright: change with your own copyright
   google_analytics: ''
+
+# global default culture: if not supplied in specific areas; this value is used when determining the default culture
+default_culture: en
+
+# google analytics id
+google_analytics: null
+
+# areas allow to configure different area of the application, each with its own locale configuration.
+areas:
+  public:
+    session_cookie_name: aiothreese
+    encryption_key: "LOREM_IPSUM"
+    default_culture: en
+    cultures:
+      - en
+      - it
+      - pl
+  admin:
+    session_cookie_name: aiothreeadse
+    encryption_key: "LOREM_IPSUM"
+    cultures:
+      - en
 
 logs:
   - file : /logs/app.log
 
 postgres:
-  database: db_name
-  user: db_user
-  password: db_password
+  database: aiohttp
+  user: postgres
+  password: YOUR_POSTGRESQL_PASSWORD
   host: localhost
   port: 5432
   minsize: 1

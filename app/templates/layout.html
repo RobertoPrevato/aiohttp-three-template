@@ -21,6 +21,7 @@
   <meta name="description" content="{%- block description-%}{%- endblock -%}" />
   <meta name="copyright" content="{{copy()}}" />
   <meta id="meta-aft" name="aft" content="{{antiforgery()}}" />
+  <meta id="meta-culture" name="culture" content="{{culture}}" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link href="/styles/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   {%- block css -%}{%- endblock -%}
@@ -39,5 +40,6 @@
     {%- block body -%}{%- endblock -%}
   </div>
   {%- block js -%}{%- endblock -%}
+  {% include "partial/analytics.html" %}
 </body>
 </html>

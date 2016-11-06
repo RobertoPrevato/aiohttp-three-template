@@ -1,28 +1,42 @@
+from aiopg.sa import create_engine
 
+__all__ = ["bootstrap"]
 
-async def close_pg(app):
-    app["db"].close()
-    await app["db"].wait_closed()
+dbclient = None
 
-
-def bootstrap(app, loop):
-    # create connection to the database
-    #db = await init_postgres(conf["postgres"], loop)
-    #app["db"] = db # ??
-    pass
-
-
-async def init_db(conf, loop):
-    pass
+def get_client():
     """
-    engine = await aiopg.sa.create_engine(
-        database=conf['database'],
-        user=conf['user'],
-        password=conf['password'],
-        host=conf['host'],
-        port=conf['port'],
-        minsize=conf['minsize'],
-        maxsize=conf['maxsize'],
+    Returns the database client initialized for the application.
+    """
+    global dbclient
+    return dbclient
+
+
+async def close_pg():
+    global dbclient
+    dbclient.close()
+    await dbclient.wait_closed()
+
+
+async def bootstrap(configuration, loop):
+    """
+    Creates the database client for the application.
+    """
+    global dbclient
+    dbclient = await init_postgres(configuration["postgres"], loop)
+
+
+async def init_postgres(conf, loop):
+    """
+    Initializes a database client for the application.
+    """
+    engine = await create_engine(
+        database=conf["database"],
+        user=conf["user"],
+        password=conf["password"],
+        host=conf["host"],
+        port=conf["port"],
+        minsize=conf["minsize"],
+        maxsize=conf["maxsize"],
         loop=loop)
     return engine
-    """

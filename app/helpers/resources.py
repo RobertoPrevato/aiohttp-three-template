@@ -53,7 +53,7 @@ def resources(names,
         else:
             files = sets[name]
             for f in files:
-                a.append("<script src=\"{}?s={}\"></script>".format(f, cache_seed))
+                a.append("<script src=\"/{}?s={}\"></script>".format(f, cache_seed))
 
     return "\n".join(a)
 

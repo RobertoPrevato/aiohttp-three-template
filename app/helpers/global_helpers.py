@@ -1,6 +1,8 @@
 from datetime import datetime
 from aiohttp_jinja2 import get_env
 from .resources import resources
+from app import configuration
+
 
 def setup_global_helpers(app):
     env = get_env(app)
@@ -13,20 +15,22 @@ def setup_global_helpers(app):
         now = datetime.now()
         return "Copyright &copy; {} {}".format(now.year, conf.site.copyright)
 
-    def antiforgery():
-        """
-        Returns an antiforgery-token.
-        """
-        return "TODO"
-
     def res(*args):
         return resources(args,
                          development=conf.development,
                          cache_seed=conf.cache_seed)
 
+    try:
+        ga_token = configuration.google_analytics
+    except KeyError:
+        ga_token = None
+
+    def google_analytics():
+        return ga_token
+
     helpers = {
         "copy": get_copy,
-        "antiforgery": antiforgery,
+        "google_analytics": google_analytics,
         "resources": res
     }
 
