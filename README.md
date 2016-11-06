@@ -3,7 +3,7 @@ Project template for Python aiohttp three-tier web applications
 
 [![Homepage](https://robertoprevato.github.io/demos/aiohttp-template/homepage.png)](https://robertoprevato.github.io/demos/aiohttp-template/homepage.png)
 
-## Features
+## Project template features
 * Project skeleton ready to use, to start a three tier web application using [aiohttp](http://aiohttp.readthedocs.io/en/stable/web.html) for its presentation layer.
 * Strategy to organize the application into areas (e.g. public, admin, etc.)
 * Support for different localization and authentication strategies based on application area
