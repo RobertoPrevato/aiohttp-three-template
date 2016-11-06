@@ -31,7 +31,7 @@ Project template for Python aiohttp three-tier web applications
 * [master](https://github.com/RobertoPrevato/aiohttp-three-template/tree/master): template with all features listed above.
 
 ## Why PostgreSQL?
-Currently, PostgreSQL seems to be the best supported DBMS for use with the latest versions of Python and its features for concurrency (asyncio), including the convenient async / await syntax.
+PostgreSQL seems to be the best supported DBMS for use with the latest versions of Python and its features for concurrency (asyncio), including the convenient async / await syntax.
 
 ## Why not aiohttp-security?
 A new implementation of authentication and authorization strategies was preferred because:
