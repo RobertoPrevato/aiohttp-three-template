@@ -1,5 +1,5 @@
 # aiohttp-three-template
-Project template for Python aiohttp three-tier web applications
+Project template for three-tier web applications using Python aiohttp for the presentation layer.
 
 [![Homepage](https://robertoprevato.github.io/demos/aiohttp-template/homepage.png)](https://robertoprevato.github.io/demos/aiohttp-template/homepage.png)
 
@@ -25,6 +25,7 @@ Project template for Python aiohttp three-tier web applications
 * Strategy to activate / deactivate serving of static files by configuration file.
 * Strategy to force client reload of JavaScript and CSS files by configuration file.
 * Integration with Google Analytics, by configuration file
+* Easy control on the source code (e.g. to modify
 
 ## Branches
 * [empty-project](https://github.com/RobertoPrevato/aiohttp-three-template/tree/empty-project): empty template without any authentication strategy, but including code organization and JavaScript bundling and minification strategy, LESS compilation and integration with Grunt.
