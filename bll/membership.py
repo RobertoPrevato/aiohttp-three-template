@@ -308,36 +308,13 @@ class MembershipProvider:
             return False
         return True
 
-    def validate_password(self, password):
-        if not password or password.isspace():
-            return False
-        l = len(password)
-        if l < 6:
-            # too simple, either way
-            return False
-
-        if l > 50:
-            # too long: the interface allows maximum 50 chars
-            return False
-
-        keys = OrderedDict.fromkeys(password).keys()
-        keys_length = len(keys)
-
-        if keys_length < 3:
-            # the password is too weak, it contains less than 3 different types of character
-            return False
-
-        forbidden = {"password", "qwerty", "123456", "1234567"}
-        if password.lower() in forbidden:
-            return False
-        return True
-
     def get_account_defaults(self):
         return {}
 
     def create_account(self, userkey, password, data=None, roles=None, lang="en"):
         """
-        Creates a new user account in db
+        Creates a new user account.
+
         :param userkey: key of the user (e.g. email or username)
         :param password: account clear password (e.g. user defined password)
         :param data: dict, optional account data
@@ -364,27 +341,8 @@ class MembershipProvider:
             data["confirmation_token"] = confirmation_token
 
         account_data = self.store.create_account(userkey, hashedpassword, salt, data, roles)
-        account_id = account_data.get("id")
 
-        """
-        if self.options.requires_account_confirmation:
-            # send an email with the confirmation token, to require confirmation of the account
-            try:
-                self.send_account_confirmation_email(userkey, account_id, confirmation_token, lang)
-            except Exception as ex:
-                app.reports.log_exception(ex, info="Sending email for confirmation failed for account `{}`"
-                                          .format(userkey))
-
-                # delete the account automatically, so if the user tries to recreate it, it's possible
-                try:
-                    self.store.delete_account_by_id(account_id)
-                except Exception as del_ex:
-                    app.reports.log_exception(del_ex, info="Deleting account after email failure failed! `{}`"
-                                              .format(userkey))
-                    pass
-                return False, "ConfirmationEmailFail"
-            return True, "ConfirmAccount"
-        """
+        # TODO: if desired, implement send email logic
         return True, account_data
 
     def is_password_correct(self, account_id, password):
@@ -405,6 +363,7 @@ class MembershipProvider:
     def update_password(self, userkey, password):
         """
         Updates the password for the account with the given key.
+
         :param userkey: key of the user (e.g. email or username)
         :param password: account clear password (e.g. user defined password)
         :return:
@@ -451,14 +410,7 @@ class MembershipProvider:
         if not deleted:
             return False, "NoDocumentDeleted"
 
-        # send email
-        email = account.get("email")
-        try:
-            self.send_farewell_email(email, lang)
-        except Exception as ex:
-            from app import app
-            app.reports.log_exception(ex, info="Farewell email fail for account `{}`"
-                                      .format(email))
+        # TODO: if desired, implement farewell email here
         return True, None
 
     def confirm_account(self, account_id, confirmation_token):
@@ -558,6 +510,9 @@ class MembershipProvider:
         del account_data.salt
         del account_data.hash
         principal = self.principal_type
+
+        # TODO: if desired, implement sending of email here "new login from..."
+
         return True, AuthenticationResult(
             principal(account_data.id,
                       account_data,
@@ -568,7 +523,8 @@ class MembershipProvider:
 
     def report_login_attempt(self, userkey, client_ip):
         """
-        Reports a login attempt.
+        Reports a login attempt, storing it in the persistence layer.
+
         :param userkey: the user key (email address or username)
         :param client_ip: ip of the client
         """
@@ -623,10 +579,11 @@ class MembershipProvider:
         """
         This function is used when a user requested a password change, using a token that was sent by email.
         It validates a token that was set previously.
-        :param account_id:
+
+        :param account_id: id of the account of which the password should be changed
         :param token: password reset token
-        :param password_one:
-        :param password_two:
+        :param password_one: first password
+        :param password_two: password repetition
         :return:
         """
         require_params(account_id=account_id,
@@ -797,3 +754,32 @@ class MembershipProvider:
         if not valid:
             return False, "password too weak"
         return True, None
+
+    def validate_password(self, password):
+        """
+        Validates a single value to see if it's suitable for a password.
+
+        :param password: value to validate.
+        """
+        if not password or password.isspace():
+            return False
+        l = len(password)
+        if l < 6:
+            # too simple, either way
+            return False
+
+        if l > 50:
+            # too long: the interface allows maximum 50 chars
+            return False
+
+        keys = OrderedDict.fromkeys(password).keys()
+        keys_length = len(keys)
+
+        if keys_length < 3:
+            # the password is too weak, it contains less than 3 different types of character
+            return False
+
+        forbidden = {"password", "qwerty", "123456", "1234567"}
+        if password.lower() in forbidden:
+            return False
+        return True

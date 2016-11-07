@@ -11,7 +11,7 @@ public = Area("public", membership_provider=PublicMembershipProvider())
 @public
 async def index(request):
     """
-    Returns the main page.
+    Returns the main page of the public area.
     """
     return render_template("index.html", request, {})
 
