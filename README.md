@@ -5,16 +5,16 @@ Project template for three-tier web applications using Python aiohttp for the pr
 
 ## Project template features
 * Project skeleton ready to use, to start a three tier web application using [aiohttp](http://aiohttp.readthedocs.io/en/stable/web.html) for its presentation layer.
-* Strategy to organize the application into areas (e.g. public, admin, etc.)
-* Support for different localization and authentication strategies based on application area
-* Authentication and authorization strategies
-* Server side localization strategy (e.g. supported cultures by application area, culture code in routes, etc.)
-* Culture code in url route; logic to validate culture and redirect when a request hits a non supported culture
-* Code organization to use YAML configuration file for the application
-* Session management strategy, supporting anonymous users sessions and storing client information (user-agent)
-* Integration with [Babel internationalization library](http://babel.pocoo.org/en/latest/installation.html)
+* Strategy to organize the application into areas (e.g. public, admin, etc.).
+* Support for different localization and authentication strategies based on application area.
+* Authentication and authorization strategies.
+* Server side localization strategy (e.g. supported cultures by application area, culture code in routes, etc.).
+* Culture code in url route; logic to validate culture and redirect when a request hits a non supported culture.
+* Code organization to use YAML configuration file for the application.
+* Session management strategy, supporting anonymous users sessions and storing client information (user-agent).
+* Integration with [Babel internationalization library](http://babel.pocoo.org/en/latest/installation.html).
 * Authentication and authorization strategies abstracted from presentation layer, including anonymous authentication.
-* Antiforgery token validation strategy (session based, dual token technique; for AJAX requests and regular form posts)
+* Antiforgery token validation strategy (session based, dual token technique; for AJAX requests and regular form posts).
 * Login mechanism protected against brute forcing (stores login attempts in DB).
 * DB based sessions strategy, supporting multiple instances of the application, behind load balancers.
 * Instructions for PostgreSQL setup.
@@ -24,8 +24,7 @@ Project template for three-tier web applications using Python aiohttp for the pr
 * Strategy to show or hide error details by configuration.
 * Strategy to activate / deactivate serving of static files by configuration file.
 * Strategy to force client reload of JavaScript and CSS files by configuration file.
-* Integration with Google Analytics, by configuration file
-* Easy control on the source code (e.g. to modify
+* Integration with Google Analytics, by configuration file.
 
 ## Branches
 * [empty-project](https://github.com/RobertoPrevato/aiohttp-three-template/tree/empty-project): empty template without any authentication strategy, but including code organization and JavaScript bundling and minification strategy, LESS compilation and integration with Grunt.
