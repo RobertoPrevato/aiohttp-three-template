@@ -41,7 +41,6 @@ areas:
     cultures:
       - en
       - it
-      - pl
   admin:
     session_cookie_name: aiothreeadse
     encryption_key: "LOREM_IPSUM"

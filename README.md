@@ -12,7 +12,6 @@ Project template for three-tier web applications using Python aiohttp for the pr
 * Culture code in url route; logic to validate culture and redirect when a request hits a non supported culture.
 * Code organization to use YAML configuration file for the application.
 * Session management strategy, supporting anonymous users sessions and storing client information (user-agent).
-* Integration with [Babel internationalization library](http://babel.pocoo.org/en/latest/installation.html).
 * Authentication and authorization strategies abstracted from presentation layer, including anonymous authentication.
 * Antiforgery token validation strategy (session based, dual token technique; for AJAX requests and regular form posts).
 * Login mechanism protected against brute forcing (stores login attempts in DB).

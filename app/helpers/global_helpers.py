@@ -8,6 +8,7 @@ def setup_global_helpers(app):
     env = get_env(app)
     conf = app.config
     # set global helpers for Jinja 2
+
     def get_copy():
         """
         Returns the copyright string for the application.

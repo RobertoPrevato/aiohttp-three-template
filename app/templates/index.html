@@ -1,9 +1,9 @@
 {%- extends "layout.html" -%}
 {%- block title -%}
-  Index Page
+  {{_("index.title")}}
 {%- endblock -%}
 {%- block description -%}
-  Index description
+  {{_("index.description")}}
 {%- endblock -%}
 {%- block css -%}
   <link rel="stylesheet" href="/styles/public.css" />
@@ -16,16 +16,16 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <img src="/images/aiohttp.png" alt="aiohttp" width="217" height="217">
-          <h2 class="main-description">aiohttp is a great web framework to build event based,<br>non&#8209;blocking Python web applications.</h2>
+          <h2 class="main-description">{{_("site.description")}}</h2>
           <hr class="star-light">
         </div>
       </div>
       <div class="row">
         <div>
-          <p>aiohttp leverages the latest Python 3 built-in features for concurrency{# (asyncio, <a href="https://www.python.org/dev/peps/pep-0492/">async/await syntax</a>)#}, to offer an extremely high performance HTTP client/server implementation.</p>
+          <p>{{_("site.details")}}</p>
         </div>
         <div>
-          <a href="http://aiohttp.readthedocs.io/en/stable/web.html" class="btn btn-lg btn-outline" target="_blank">Learn more</a>
+          <a href="http://aiohttp.readthedocs.io/en/stable/web.html" class="btn btn-lg btn-outline" target="_blank">{{_("voc.learn_more")}}</a>
         </div>
       </div>
     </div>
@@ -37,11 +37,11 @@
       <div class="container">
         <div class="row">
           <div class="footer-col col-md-4">
-          <h3>About the project template</h3>
-          <p>aiohttp-three-template is a project template for aiohttp web applications created by <a href="https://github.com/RobertoPrevato">Roberto&nbsp;Prevato</a>.</p>
+          <h3>{{_("site.about_template")}}</h3>
+          <p>{{_("site.about_author")}}</p>
           </div>
           <div class="footer-col col-md-4">
-            <h3>Around the Web</h3>
+            <h3>{{_("site.author_in_the_web")}}</h3>
             <ul class="list-inline">
               <li>
                 <a href="https://plus.google.com/+RobertoPrevato86" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
@@ -61,8 +61,8 @@
             </ul>
           </div>
           <div class="footer-col col-md-4">
-            <h3>About Freelancer<br>(page theme)</h3>
-            <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start&nbsp;Bootstrap</a>.</p>
+            <h3>{{_("site.about_theme")}}</h3>
+            <p>{{_("site.theme_details")}}</p>
           </div>
         </div>
       </div>

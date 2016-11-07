@@ -3,7 +3,32 @@
 
  This module contains functions for the server side localization strategy.
  It includes functions to support different cultures for each application area (e.g. public area, admin area, etc.).
+
+ The recognized standard to implement localization in Python application is using Babel http://babel.pocoo.org.
+ However, using Babel requires knowledge that is outside of the scope of this project template (extraction, compilation,
+ babel.cfg, etc.).
+ Therefore in this project template is shown a simpler model, supporting only scoped translations and demonstrating
+ the implementation of a custom Jinja2 helper to obtain localized strings.
 """
+from app.translations.regional import regional
+from core.exceptions import ArgumentNullException
+
+
+def get_text(language, key, default=None):
+    if not language:
+        raise ArgumentNullException("language")
+
+    if language not in regional:
+        return "Missing regional for `{}`".format(language)
+
+    reg = regional[language]
+    parts = key.split(".")
+    v = reg
+    for part in parts:
+        if part not in v:
+            return "Missing translation for `{}`".format(key) if default is None else default
+        v = v[part]
+    return v
 
 
 class InvalidCultureException(Exception):
@@ -13,17 +38,17 @@ class InvalidCultureException(Exception):
 
 
 def parse_accept_language(value):
-  languages = value.split(",")
-  locale_q_pairs = []
-  for language in languages:
-    if language.split(";")[0] == language:
-      # no q => q = 1
-      locale_q_pairs.append((language.strip(), "1"))
+    languages = value.split(",")
+    locale_q_pairs = []
+    for language in languages:
+        if language.split(";")[0] == language:
+            # no q => q = 1
+            locale_q_pairs.append((language.strip(), "1"))
     else:
-      locale = language.split(";")[0].strip()
-      q = language.split(";")[1].split("=")[1]
-      locale_q_pairs.append((locale, q))
-  return locale_q_pairs
+        locale = language.split(";")[0].strip()
+        q = language.split(";")[1].split("=")[1]
+        locale_q_pairs.append((locale, q))
+    return locale_q_pairs
 
 
 def get_best_culture(request, area):
@@ -58,9 +83,7 @@ def get_best_culture(request, area):
     for language, _ in client_languages:
         if language in supported_cultures:
             return language
-
-    # no language was found, try again but considering only the first part of strings (language without full locale)
-    for language, _ in client_languages:
+        # no language was found, try again but considering only the first part of strings (language without full locale)
         if "-" in language:
             part_without_locale = language.split("-")[0]
             if part_without_locale in supported_cultures:

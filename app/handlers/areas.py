@@ -9,7 +9,7 @@ from app import configuration
 from core import require_params
 from core.encryption.aes import AesEncryptor
 from .cookies import CookieToken
-from .localization import get_best_culture, InvalidCultureException
+from .localization import get_text, get_best_culture, InvalidCultureException
 from .security.antiforgery import issue_aft, validate_aft, InvalidAntiforgeryTokenException
 request_context_key = "aiohttp_jinja2_context"
 
@@ -110,7 +110,8 @@ class Area:
         request[request_context_key] = {
             "user": request.user,
             "culture": request.culture,
-            "antiforgery": partial(issue_aft, request)
+            "antiforgery": partial(issue_aft, request),
+            "_": partial(get_text, request.culture)  # function for localization of strings inside template
         }
 
     async def initialize_anonymous_session(self, request: Request):
