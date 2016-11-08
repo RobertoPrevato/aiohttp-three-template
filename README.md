@@ -32,6 +32,12 @@ The main objectives behind aiohttp-three-template are:
 * offering a beginners' friendly introduction to web applications development: showing all the basic features of common web applications (server side rendering engine with implementation of custom helpers, localization strategy, authentication and authorization strategy, session management, antiforgery token validation, JS and CSS bundling and minification strategy, support for multiple application areas, code organization into logical layers)
 * providing a ready to use project template rich in features, but not too opinionated
 
+## Documentation
+
+* [How to set up the development environment](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Preparing-the-environment)
+* [How to set up a PostgreSQL instance](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/PostgreSQL-setup)
+* [How to bundle and minify CSS and JavaScript files.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Bundling-and-minification)
+
 ## Branches
 * [empty-project](https://github.com/RobertoPrevato/aiohttp-three-template/tree/empty-project): empty template without any authentication strategy, but including code organization and JavaScript bundling and minification strategy, LESS compilation and integration with Grunt.
 * [master](https://github.com/RobertoPrevato/aiohttp-three-template/tree/master): template with all features listed above.
