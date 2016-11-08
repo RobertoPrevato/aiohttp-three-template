@@ -25,13 +25,6 @@ Project template for three-tier web applications using Python aiohttp for the pr
 * Strategy to force client reload of JavaScript and CSS files by configuration file.
 * Integration with Google Analytics, by configuration file.
 
-## Objectives
-The main objectives behind aiohttp-three-template are:
-
-* to contribute to the Python community and to pay homage to the great job done by [aiohttp developers](http://aiohttp.readthedocs.io/en/stable/). Their task is important because they are developing the most modern Python competitor to other event-based web servers.
-* offering a beginners' friendly introduction to web applications development: showing all the basic features of common web applications (server side rendering engine with implementation of custom helpers, localization strategy, authentication and authorization strategy, session management, antiforgery token validation, JS and CSS bundling and minification strategy, support for multiple application areas, code organization into logical layers)
-* providing a ready to use project template rich in features, but not too opinionated
-
 ## Documentation
 
 * [How to set up the development environment.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Preparing-the-environment)
