@@ -18,9 +18,12 @@ async def index(request):
 
 @public
 @public.auth()
-async def sell_dashboard(request):
+async def account_dashboard(request):
     """
-    Test for area authorization logic.
+    This is an example to show how the authentication logic works and can be required.
+
+    Since the method is decorated by public.auth, only authenticated users have access to this resource.
+    Authentication logic is implemented inside the PublicMembershipProvider, from the business logic layer.
     """
     return web.Response(text="Hello World")
 
@@ -56,7 +59,7 @@ def setup_public_routes(app):
     app.router.add_get(culture, index_with_culture)
     app.router.add_get(culture + "/", index)
 
-    app.router.add_get(culture + "/sell", sell_dashboard)
-    app.router.add_get(culture + "/sell/", sell_dashboard)
+    app.router.add_get(culture + "/account", account_dashboard)
+    app.router.add_get(culture + "/account/", account_dashboard)
 
     app.router.add_post("/login", login)

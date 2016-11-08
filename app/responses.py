@@ -4,6 +4,12 @@ PLAIN_TYPE = "text/plain"
 JSON_TYPE = "application/json"
 
 
+def error(message="Error", status=519):
+    return web.Response(text=message,
+                        status=status,
+                        content_type=PLAIN_TYPE)
+
+
 def not_implemented():
     return web.Response(text="Not implemented",
                         status=500,

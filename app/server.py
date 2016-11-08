@@ -7,6 +7,7 @@ from aiohttp import web
 from app import configuration
 from app.routes import setup_routes
 from app.helpers.global_helpers import setup_global_helpers
+from app.handlers.security.errors import errors_middleware
 from app.handlers.cookies import cookies_middleware
 from dal import bootstrap as bootstrap_dal
 
@@ -29,6 +30,7 @@ async def init(loop):
     setup_routes(app, PROJ_ROOT)
     # setup middlewares
     app.middlewares.append(cookies_middleware)
+    app.middlewares.append(errors_middleware)
 
     host, port = configuration.host, configuration.port
     return app, host, port

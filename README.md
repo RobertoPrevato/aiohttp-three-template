@@ -10,12 +10,10 @@ Project template for three-tier web applications using Python aiohttp for the pr
 * Server side localization strategy (e.g. supported cultures by application area, culture code in routes, etc.).
 * Culture code in url route; logic to validate culture and redirect when a request hits a non supported culture.
 * Code organization to use YAML configuration file for the application.
-* Session management, supporting anonymous users sessions and storing client information (user-agent).
+* Database based session management, supporting anonymous users sessions and storing client information (user-agent).
 * Antiforgery token validation (session based, dual token technique; for AJAX requests and regular form posts).
-* Login mechanism protected against brute forcing (stores login attempts in DB).
 * Instructions for PostgreSQL setup.
 * Script to create PostgreSQL tables for accounts, sessions, login attempts (public area and administrative area).
-* Custom error pages.
 * Strategy to use secure cookies (HTTPS only) by configuration file.
 * Strategy to show or hide error details by configuration.
 * Strategy to activate / deactivate serving of static files by configuration file.
@@ -27,10 +25,6 @@ Project template for three-tier web applications using Python aiohttp for the pr
 * [How to set up the development environment.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Preparing-the-environment)
 * [How to set up a PostgreSQL instance.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/PostgreSQL-setup)
 * [How to bundle and minify CSS and JavaScript files.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Bundling-and-minification)
-
-## Branches
-* [empty-project](https://github.com/RobertoPrevato/aiohttp-three-template/tree/empty-project): empty template without any authentication strategy, but including code organization and JavaScript bundling and minification strategy, LESS compilation and integration with Grunt.
-* [master](https://github.com/RobertoPrevato/aiohttp-three-template/tree/master): template with all features listed above.
 
 ## Why exactly PostgreSQL?
 PostgreSQL seems to be the best supported DBMS for use with the latest versions of Python and its features for concurrency (asyncio), including the convenient async / await syntax.
