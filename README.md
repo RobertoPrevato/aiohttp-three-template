@@ -34,8 +34,8 @@ The main objectives behind aiohttp-three-template are:
 
 ## Documentation
 
-* [How to set up the development environment](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Preparing-the-environment)
-* [How to set up a PostgreSQL instance](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/PostgreSQL-setup)
+* [How to set up the development environment.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Preparing-the-environment)
+* [How to set up a PostgreSQL instance.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/PostgreSQL-setup)
 * [How to bundle and minify CSS and JavaScript files.](https://github.com/RobertoPrevato/aiohttp-three-template/wiki/Bundling-and-minification)
 
 ## Branches
