@@ -8,7 +8,7 @@
 * Licensed under the MIT license:
 * http://www.opensource.org/licenses/MIT
 """
-from aiohttp.web import HTTPClientError
+from aiohttp.web import HTTPClientError, HTTPException
 from app import configuration
 from app.responses import error
 
@@ -21,8 +21,10 @@ async def errors_middleware(app, handler):
         # sets arrays in the request object, that can be manipulated to insert or remove cookies for the response.
         try:
             response = await handler(request)
-        except HTTPClientError as hce:
-            return hce
+        except HTTPException as e:
+            return e
+        except HTTPClientError as e:
+            return e
         except Exception as ex:
             if show_error_details:
                 # return error details to the client
